@@ -19,22 +19,23 @@ public class Fibonacci {
         return fiboRecursive(n-1)+fiboRecursive(n-2);
     }
     private int[] memo = new int[1000];
+    private int count = 0;
 
-    public int Fibonacci(int n){
-        return fiboMemo(n);
-    }
     public int fiboMemo(int n){
         if(n <= 2){return 1;}
-        if(memo[n] != 0){return memo[n];}
-        memo[n] = fiboMemo(n-1)+fiboMemo(n-2);
-        return memo[n];
+        if(memo[n] != 0){
+            count++;
+            return memo[n];}
+        return memo[n] = fiboMemo(n-1)+fiboMemo(n-2);
     }
+
     public static void main(String[] args){
 
         int n =8;
-        System.out.println(fiboloop(n));
-        System.out.println(fiboRecursive(n));
+        //System.out.println(fiboloop(n));
+        //System.out.println(fiboRecursive(n));
         Fibonacci fibo = new Fibonacci();
         System.out.println(fibo.fiboMemo(n));
+        System.out.println(fibo.count);
     }
 }

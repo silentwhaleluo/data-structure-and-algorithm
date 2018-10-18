@@ -29,7 +29,7 @@ public class power {
         Random r = new Random();
         for (int i = 1; i < k; i++){
             int a = r.nextInt(p+1)-2;
-            if (powermod(a,p-1,p) == 1){
+            if (powermod(a,p-1,p) != 1){
                 return Boolean.FALSE;
             }
         }
